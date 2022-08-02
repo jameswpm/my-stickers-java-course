@@ -20,7 +20,7 @@ About the course: https://www.alura.com.br/imersao-java _(in Portuguese)_
 - [X] Place the IMDB API key somewhere outside the code like a configuration file (eg a .properties file)
   or an environment variable.
 
-- [ ] Change JsonParser to use a JSON parsing library like Jackson or GSON.
+- [X] Change JsonParser to use a JSON parsing library like Jackson or GSON.
 
 - [ ] Supreme challenge: create some way for you to give a rating to the movie, pulling it from some configuration file
   or asking the user to type the rating in the terminal.
