@@ -1,0 +1,3 @@
+//RENAME THIS FILE AS .properties
+imdbUrl = https://imdb-api.com/en/API/MostPopularMovies/
+imdbKey = REPLACE_WITH_ACTUAL_KEY
