@@ -52,4 +52,7 @@ replay_pid*
 # Ignore code-workspaces
 *.code-workspace
 
+#Java .properties
+.properties
+
 # End of https://www.toptal.com/developers/gitignore/api/java,visualstudiocode
