@@ -24,3 +24,20 @@ About the course: https://www.alura.com.br/imersao-java _(in Portuguese)_
 
 - [X] Supreme challenge: create some way for you to give a rating to the movie, pulling it from some configuration file
   or asking the user to type the rating in the terminal.
+
+## Day 2: Generating stickers
+
+### Branch "creating-stickers"
+
+### Challenges
+
+- [ ] Read the documentation of `InputStream`: https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html.
+- [ ] Center the text on the sticker.
+- [ ] Make a WhatsApp and/or Telegram package with your own stickers!
+- [ ] Create output directory for images if it does not already exist.
+- [ ] Use another font like Comic Sans or Impact, the font used in memes.
+- [ ] Put a picture of yourself smiling, giving a thumbs up!
+- [ ] Add an outline to the text of the image.
+- [ ] Edit the image URL returned by the IMDB API to get a larger image instead of the thumbnails.
+- [ ] Customize sticker text according to IMDB ratings.
+- [ ] Ultimate challenge: use some image manipulation library like OpenCV to extract the main image and contour it.
