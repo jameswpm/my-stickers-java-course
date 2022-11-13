@@ -1,6 +1,6 @@
-# 5-day Java Course, by [Alura](https;//www.alura.com.br)
+# Modern Java Course, by [Alura](https://www.alura.com.br)
 
-My code for the 5-day Java course of Alura
+My code for the 5-day Java course of Alura using most modern Java resources (Java11 +)
 
 About the course: https://www.alura.com.br/imersao-java _(in Portuguese)_
 
@@ -22,5 +22,5 @@ About the course: https://www.alura.com.br/imersao-java _(in Portuguese)_
 
 - [X] Change JsonParser to use a JSON parsing library like Jackson or GSON.
 
-- [ ] Supreme challenge: create some way for you to give a rating to the movie, pulling it from some configuration file
+- [X] Supreme challenge: create some way for you to give a rating to the movie, pulling it from some configuration file
   or asking the user to type the rating in the terminal.
