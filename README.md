@@ -31,10 +31,13 @@ About the course: https://www.alura.com.br/imersao-java _(in Portuguese)_
 
 ### Challenges
 
-- [ ] Read the documentation of `InputStream`: https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html.
+- [X] Read the documentation of `InputStream`: https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html.
+
 - [ ] Center the text on the sticker.
 - [ ] Make a WhatsApp and/or Telegram package with your own stickers!
-- [ ] Create output directory for images if it does not already exist.
+
+- [X] Create output directory for images if it does not already exist.
+    - Output directory included in the .gitignore to avoid image versions in GitHub that can create confusing git trees
 - [ ] Use another font like Comic Sans or Impact, the font used in memes.
 - [ ] Put a picture of yourself smiling, giving a thumbs up!
 - [ ] Add an outline to the text of the image.

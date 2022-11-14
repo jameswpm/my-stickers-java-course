@@ -56,3 +56,7 @@ replay_pid*
 .properties
 
 # End of https://www.toptal.com/developers/gitignore/api/java,visualstudiocode
+
+# Avoid content in output to avoid sticker in the repository
+output
+output/*
