@@ -24,12 +24,4 @@ public class CreateTable {
             System.out.println(e.getMessage());  
         }  
     }  
-   
-    /** 
-     * @param args the command line arguments 
-     */  
-    public static void main(String[] args) {  
-        createNewTable();  
-    }  
-   
 }  

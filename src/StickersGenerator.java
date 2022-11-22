@@ -14,7 +14,6 @@ public class StickersGenerator {
     public void create(InputStream inputStream, String fileName) throws Exception {
 
         //read an image file from local
-        
         BufferedImage originalImage = ImageIO.read(inputStream);
         
         //create a new image with new size and alpha transparency
@@ -29,7 +28,7 @@ public class StickersGenerator {
         graphics.drawImage(originalImage, 0, 0, null);
 
         //configure text font
-        var my_font = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+        var my_font = new Font("Comic Sans MS", Font.BOLD, 64);
         graphics.setFont(my_font);
         graphics.setColor(Color.YELLOW);
 
