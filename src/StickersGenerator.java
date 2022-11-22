@@ -28,16 +28,15 @@ public class StickersGenerator {
         graphics.drawImage(originalImage, 0, 0, null);
 
         //configure text font
-        var my_font = new Font("Comic Sans MS", Font.BOLD, 64);
+        var my_font = new Font("Comic Sans MS", Font.BOLD, 94);
         graphics.setFont(my_font);
         graphics.setColor(Color.YELLOW);
 
         //write a funny phrase inside the new image
-        graphics.drawString("BEST MOVIE2", 100, newHeight - 100);
-
+        graphics.drawString("BEST MOVIE2", width/2/2, newHeight - 100);
 
         //write new image in a new file
-        File outputFile = new File("output/" + fileName + ".png");
+        File outputFile = new File("output/" + fileName.replace(":", "") + ".png");
         outputFile.getParentFile().mkdirs();
         ImageIO.write(newImage, "png", outputFile);
 

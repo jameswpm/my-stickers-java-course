@@ -20,6 +20,7 @@ public class JsonParser {
 
             Map<String, String> movieAttributes = new HashMap<>();
             
+            movieAttributes.put("id", movie.getId());
             movieAttributes.put("title", movie.getTitle());
             movieAttributes.put("image", movie.getImage());
             movieAttributes.put("imDbRatingCount", movie.getImDbRatingCount());

@@ -38,9 +38,13 @@ About the course: https://www.alura.com.br/imersao-java _(in Portuguese)_
 
 - [X] Create output directory for images if it does not already exist.
     - Output directory included in the .gitignore to avoid image versions in GitHub that can create confusing git trees
-- [ ] Use another font like Comic Sans or Impact, the font used in memes.
+
+- [X] Use another font like Comic Sans or Impact, the font used in memes.
+
 - [ ] Put a picture of yourself smiling, giving a thumbs up!
 - [ ] Add an outline to the text of the image.
-- [ ] Edit the image URL returned by the IMDB API to get a larger image instead of the thumbnails.
+- [X] Edit the image URL returned by the IMDB API to get a larger image instead of the thumbnails.
+    - Using the Resize API to always get the same size for each poster
+
 - [ ] Customize sticker text according to IMDB ratings.
 - [ ] Ultimate challenge: use some image manipulation library like OpenCV to extract the main image and contour it.

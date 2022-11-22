@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
 import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
@@ -63,7 +64,7 @@ public class App {
     }
 
     private static void rateAMovie(Properties properties) throws IOException, InterruptedException, SQLException {
-        //connect using HTTP and search for top 250 movies
+        //connect using HTTP and search for the most popular movies
         String url = properties.getProperty("imdbUrl") + properties.getProperty("imdbKey");
         URI adress = URI.create(url);
         
@@ -112,7 +113,7 @@ public class App {
     }
 
     private static void listMovies(Properties properties) throws IOException, InterruptedException {
-        //connect using HTTP and search for top 250 movies
+        //connect using HTTP and search for the most popular movies
         String url = properties.getProperty("imdbUrl") + properties.getProperty("imdbKey");
         URI adress = URI.create(url);
         
@@ -158,36 +159,45 @@ public class App {
     }
 
     private static void generateStickers(Properties properties) throws IOException, InterruptedException {
-        //connect using HTTP and search for top 250 movies
-        String url = properties.getProperty("imdbUrl") + properties.getProperty("imdbKey");
-        URI adress = URI.create(url);
-        
-        HttpClient client = HttpClient.newHttpClient();
-        var request = HttpRequest.newBuilder(adress).GET().build(); // using var just to know that it works fine here
+        //connect using HTTP and search for the most popular movies
+        String urlMovies = properties.getProperty("imdbUrl") + properties.getProperty("imdbKey");
+        URI adressMovies = URI.create(urlMovies);
 
-        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        String body  = response.body();
+        String urlPosters = properties.getProperty("imdbPosters") +"apiKey=" + properties.getProperty("imdbKey");
+                
+        HttpClient client = HttpClient.newHttpClient();
+        var request = HttpRequest.newBuilder(adressMovies).GET().build();
+
+        HttpResponse<String> responseMovies = client.send(request, BodyHandlers.ofString());
+        String bodyMovies  = responseMovies.body();
 
         //get usefull data (movie name, poster and rating)
         jsonParser = new JsonParser();
-        List<Map<String, String>> moviesList = jsonParser.parse(body);
+        List<Map<String, String>> moviesList = jsonParser.parse(bodyMovies);
        
         StickersGenerator generator = new StickersGenerator();
         // generate stickers and save them into output folder
         System.out.println("\u001b[37m \u001b[44m \u001b[1mGenerating Stickers for movies in IMDB:\u001b[m");
         for (Map<String,String> movie : moviesList) {
 
-            String movieRating = (String) movie.get("imDbRating");
+            var moviemoviePosterUrl = movie.get("image");
 
-            if (movieRating.isEmpty()) {
+            if (moviemoviePosterUrl.isEmpty()) {
                 continue;
             }
             var movieName = movie.get("title");
-            var moviemoviePosterUrl = movie.get("image");
+            
+            //call API to resize image
+            URI adressPosters = URI.create(urlPosters + "&size=2025x3000&url=" + moviemoviePosterUrl);
+            var requestPosters = HttpRequest.newBuilder(adressPosters).GET().build();
+
+            HttpResponse<String> responsePosters = client.send(requestPosters, BodyHandlers.ofString());
+            HttpHeaders bodyHeaders  = responsePosters.headers();
+            String imageURL = bodyHeaders.firstValue("Location").orElse("");
 
             System.out.println("\u001b[37m \u001b[44m \u001b[1mMovie title:\u001b[m" + " " + movieName);
             
-            InputStream movieURL = new URL(moviemoviePosterUrl).openStream();
+            InputStream movieURL = new URL(imageURL).openStream();
             try {
                 generator.create(movieURL, movieName);
             } catch (Exception e) {
@@ -197,6 +207,7 @@ public class App {
             System.out.println("Sticker generated");            
 
             System.out.println("");
+            break;//Temporary to avoid API consumption in tests
         }
     }
 
